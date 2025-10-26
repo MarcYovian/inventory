@@ -17,7 +17,10 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'sku' => $this->faker->unique()->ean13(),
+            'name' => $this->faker->name(),
+            'description' => $this->faker->paragraph(),
+            'current_stock' => $this->faker->numberBetween(1, 100),
         ];
     }
 }

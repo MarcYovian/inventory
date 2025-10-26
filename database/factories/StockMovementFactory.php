@@ -17,7 +17,8 @@ class StockMovementFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'quantity' => $this->faker->numberBetween(1, 10),
+            'notes' => $this->faker->paragraph(),
         ];
     }
 }
