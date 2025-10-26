@@ -5,12 +5,14 @@ A comprehensive Stock Management System built with Laravel, featuring a web-base
 ## Key Features
 
 ### Admin Panel
+
 -   **Product Management:** CRUD functionality for products.
 -   **Stock Control:** Easily add or reduce product stock.
 -   **Movement History:** Track all stock movements.
 -   **Search and Pagination:** Efficiently navigate through products and stock records.
 
 ### RESTful API
+
 -   **Authentication:** Secure token-based authentication using Laravel Sanctum.
 -   **Product Endpoints:** Full CRUD capabilities for products.
 -   **Stock Movement Endpoints:** Programmatically manage stock levels and history.
@@ -34,18 +36,21 @@ A comprehensive Stock Management System built with Laravel, featuring a web-base
 ## Installation Instructions
 
 1.  **Clone the repository:**
+
     ```bash
-    git clone https://github.com/your-username/inventory-management.git
+    git clone https://github.com/MarcYovian/inventory.git
     cd inventory-management
     ```
 
 2.  **Install dependencies:**
+
     ```bash
     composer install
     npm install
     ```
 
 3.  **Environment setup:**
+
     -   Copy the example `.env` file:
         ```bash
         cp .env.example .env
@@ -65,11 +70,13 @@ A comprehensive Stock Management System built with Laravel, featuring a web-base
         ```
 
 4.  **Run database migrations:**
+
     ```bash
     php artisan migrate
     ```
 
 5.  **Build frontend assets:**
+
     ```bash
     npm run build
     ```
@@ -82,11 +89,13 @@ A comprehensive Stock Management System built with Laravel, featuring a web-base
 ## Basic Usage
 
 ### Admin Panel
+
 -   Access the admin panel by navigating to `http://localhost:8000`.
 -   Register a new user or log in with existing credentials.
 -   Manage products and stock through the web interface.
 
 ### API
+
 -   The API base URL is `http://localhost:8000/api`.
 -   Refer to the [API Guide](docs/api_guide.md) for detailed endpoint documentation.
 

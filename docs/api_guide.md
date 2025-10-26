@@ -22,12 +22,12 @@ Create a new user account.
 -   **Authentication:** Not required.
 -   **Request Body:**
 
-| Field | Type | Description | Validation |
-| :--- | :--- | :--- | :--- |
-| `name` | string | User's name. | Required, string, max 255. |
-| `email` | string | User's email address. | Required, email, unique. |
-| `password` | string | User's password. | Required, string, min 8, confirmed. |
-| `password_confirmation` | string | Password confirmation. | Required. |
+| Field                   | Type   | Description            | Validation                          |
+| :---------------------- | :----- | :--------------------- | :---------------------------------- |
+| `name`                  | string | User's name.           | Required, string, max 255.          |
+| `email`                 | string | User's email address.  | Required, email, unique.            |
+| `password`              | string | User's password.       | Required, string, min 8, confirmed. |
+| `password_confirmation` | string | Password confirmation. | Required.                           |
 
 -   **Example Request:**
 
@@ -69,10 +69,10 @@ Authenticate and receive an API token.
 -   **Authentication:** Not required.
 -   **Request Body:**
 
-| Field | Type | Description | Validation |
-| :--- | :--- | :--- | :--- |
-| `email` | string | User's email address. | Required, email. |
-| `password` | string | User's password. | Required, string. |
+| Field      | Type   | Description           | Validation        |
+| :--------- | :----- | :-------------------- | :---------------- |
+| `email`    | string | User's email address. | Required, email.  |
+| `password` | string | User's password.      | Required, string. |
 
 -   **Example Request:**
 
@@ -143,10 +143,10 @@ Manage products in the inventory.
 -   **Authentication:** Required.
 -   **Query Parameters:**
 
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
+| Parameter  | Type    | Description                              |
+| :--------- | :------ | :--------------------------------------- |
 | `per_page` | integer | Number of items per page. Default: `10`. |
-| `search` | string | Search by product `name` or `sku`. |
+| `search`   | string  | Search by product `name` or `sku`.       |
 
 -   **Success Response (200):**
 
@@ -177,12 +177,12 @@ Manage products in the inventory.
 -   **Authentication:** Required.
 -   **Request Body:**
 
-| Field | Type | Description | Validation |
-| :--- | :--- | :--- | :--- |
-| `sku` | string | Stock Keeping Unit. | Required, unique, max 15, regex `^[A-Z0-9]{1,4}-[A-Z0-9]{1,4}-[0-9]{1,5}$`. |
-| `name` | string | Product name. | Required, string, max 255. |
-| `description` | string | Product description. | Nullable, string, max 5000. |
-| `current_stock` | integer | Initial stock quantity. | Required, integer, min 0. |
+| Field           | Type    | Description             | Validation                                                                  |
+| :-------------- | :------ | :---------------------- | :-------------------------------------------------------------------------- |
+| `sku`           | string  | Stock Keeping Unit.     | Required, unique, max 15, regex `^[A-Z0-9]{1,4}-[A-Z0-9]{1,4}-[0-9]{1,5}$`. |
+| `name`          | string  | Product name.           | Required, string, max 255.                                                  |
+| `description`   | string  | Product description.    | Nullable, string, max 5000.                                                 |
+| `current_stock` | integer | Initial stock quantity. | Required, integer, min 0.                                                   |
 
 -   **Success Response (201):**
 
@@ -199,8 +199,8 @@ Manage products in the inventory.
 -   **Authentication:** Required.
 -   **Path Parameters:**
 
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
+| Parameter | Type    | Description            |
+| :-------- | :------ | :--------------------- |
 | `product` | integer | The ID of the product. |
 
 -   **Success Response (200):**
@@ -218,11 +218,11 @@ Manage products in the inventory.
 -   **Authentication:** Required.
 -   **Request Body:**
 
-| Field | Type | Description | Validation |
-| :--- | :--- | :--- | :--- |
-| `sku` | string | Stock Keeping Unit. | Required, unique (ignored for current product), max 15, regex. |
-| `name` | string | Product name. | Required, string, max 255. |
-| `description` | string | Product description. | Nullable, string, max 5000. |
+| Field         | Type   | Description          | Validation                                                     |
+| :------------ | :----- | :------------------- | :------------------------------------------------------------- |
+| `sku`         | string | Stock Keeping Unit.  | Required, unique (ignored for current product), max 15, regex. |
+| `name`        | string | Product name.        | Required, string, max 255.                                     |
+| `description` | string | Product description. | Nullable, string, max 5000.                                    |
 
 -   **Success Response (200):**
 
@@ -257,11 +257,11 @@ Manage stock levels and history.
 -   **Authentication:** Required.
 -   **Query Parameters:**
 
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| `per_page` | integer | Number of items per page. Default: `15`. |
-| `search` | string | Search by product name/SKU or movement notes. |
-| `type` | string | Filter by movement type (`in` or `out`). |
+| Parameter  | Type    | Description                                   |
+| :--------- | :------ | :-------------------------------------------- |
+| `per_page` | integer | Number of items per page. Default: `15`.      |
+| `search`   | string  | Search by product name/SKU or movement notes. |
+| `type`     | string  | Filter by movement type (`in` or `out`).      |
 
 -   **Success Response (200):**
 
@@ -295,12 +295,12 @@ This endpoint is used to add or reduce stock for a product.
 -   **Authentication:** Required.
 -   **Request Body:**
 
-| Field | Type | Description | Validation |
-| :--- | :--- | :--- | :--- |
-| `product_id` | integer | The ID of the product. | Required, exists in `products` table. |
-| `type` | string | Movement type. | Required, `in` or `out`. |
-| `quantity` | integer | Quantity to add/reduce. | Required, integer, min 1. |
-| `notes` | string | Additional notes. | Nullable, string, max 1000. |
+| Field        | Type    | Description             | Validation                            |
+| :----------- | :------ | :---------------------- | :------------------------------------ |
+| `product_id` | integer | The ID of the product.  | Required, exists in `products` table. |
+| `type`       | string  | Movement type.          | Required, `in` or `out`.              |
+| `quantity`   | integer | Quantity to add/reduce. | Required, integer, min 1.             |
+| `notes`      | string  | Additional notes.       | Nullable, string, max 1000.           |
 
 -   **Success Response (201):**
 
@@ -323,7 +323,7 @@ If `type` is `out` and `quantity` exceeds `current_stock`.
     "message": "Validation Error",
     "errors": {
         "quantity": [
-            "Insufficient stock. Current stock is 100 units, but you\'re trying to reduce by 120 units."
+            "Insufficient stock. Current stock is 100 units, but you're trying to reduce by 120 units."
         ]
     }
 }
@@ -348,8 +348,8 @@ If `type` is `out` and `quantity` exceeds `current_stock`.
 -   **Authentication:** Required.
 -   **Query Parameters:**
 
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
+| Parameter  | Type    | Description                              |
+| :--------- | :------ | :--------------------------------------- |
 | `per_page` | integer | Number of items per page. Default: `15`. |
 
 -   **Success Response (200):**
@@ -372,5 +372,3 @@ If `type` is `out` and `quantity` exceeds `current_stock`.
 -   **404 Not Found:** The requested resource does not exist.
 -   **422 Unprocessable Entity:** The request body contains validation errors.
 -   **500 Internal Server Error:** An unexpected server error occurred.
-
-```
